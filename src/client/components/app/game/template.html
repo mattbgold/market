@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-8">
+        <section class="section-orders block">
+                <h2>Orders</h2>
+                <p *ngIf="!orders?.length">There are no orders left.</p>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6" *ngFor="let order of orders">
+                        <order [order]="order"></order>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <div class="block">
+            <h1>${{money}}</h1>
+            <button class="btn btn-block btn-outline-warning" (click)="startNextRound()">Next Round</button>
+        </div>
+    </div>
+</div>
+
+<section class="section-machines block">
+    <h2>Your Machines</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let machine of machines">
+            <machine [machine]="machine" (runningChanged)="initMachine(machine)" (order)="fillOrder(machine)"></machine>
+        </div>
+    </div>
+</section>

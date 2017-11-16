@@ -1,0 +1,29 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+@import './scss/_variables';
+
+body {
+    background: $bg-color;
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.1), rgba(0,0,0,.05) 1px, transparent 2px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.1), rgba(0,0,0,.05) 1px, transparent 2px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.1), rgba(0,0,0,.05) 1px, transparent 2px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0,0,0,.1), rgba(0,0,0,.05) 1px, transparent 2px, transparent 100%);
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 9px 9px;
+
+    .btn {
+        cursor: pointer;   
+    }
+
+    .block {
+        background-color: White;
+        padding: $space-lg;
+        margin-bottom: $space-md;
+        box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+    }
+
+    .card {
+        border-radius: 0px;
+    }
+}

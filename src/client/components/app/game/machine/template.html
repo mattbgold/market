@@ -1,0 +1,16 @@
+<div class="machine card" *ngIf="!!machine">
+    <div class="card-header">Machine {{machine.id}}</div>
+    <div class="card-block" *ngIf="machine.currentOrder">
+      <order [order]="machine.currentOrder"></order>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Initialization cost: ${{machine.initializationCost}}</li>
+      <li class="list-group-item">Order Fill cost: ${{machine.orderFillCost}}</li>
+      <li class="list-group-item">Maintenance cost: ${{machine.maintenanceCost}}</li>
+    </ul>
+    <div class="card-block">
+        <button *ngIf="!machine.isRunning" type="button" class="btn btn-block btn-outline-primary" (click)="start()">Start Running</button>
+        <button *ngIf="machine.isRunning && !machine.currentOrder" type="button" class="btn btn-block btn-outline-primary" (click)="claimOrder()">Fill Order</button>
+        <button *ngIf="machine.isRunning && !machine.currentOrder" type="button" class="btn btn-block btn-outline-secondary" (click)="stop()">Stop Running</button>
+    </div>
+</div>

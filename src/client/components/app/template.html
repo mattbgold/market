@@ -1,0 +1,44 @@
+<header-main></header-main>
+
+<div class="container">
+    <ng-container *ngIf="isGameStarted">
+        <game [config]="config"></game>
+
+        <div class="col-sm-4 offset-sm-4">
+            <button type="button" class="btn btn-block btn-lg btn-outline-danger" (click)="stopGame()">End Game</button>
+        </div>
+    </ng-container>
+
+    <section class="col-sm-4 offset-sm-4" *ngIf="!isGameStarted" >
+        <form class="block" (ngSubmit)="startGame()">
+            <div class="form-group">
+                <label>Starting Money</label>
+                <input type="number" class="form-control" name="money" [(ngModel)]="config.initialMoney"/>
+            </div>
+            <div class="form-group">
+                <label>Number of Machines</label>
+                <input type="number" class="form-control" name="numOfMachines" [(ngModel)]="config.initialNumOfMachines"/>
+            </div>
+            <div class="form-group">
+                <label>Machine Initialization Cost</label>
+                <input type="number" class="form-control" name="initCost" [(ngModel)]="config.machineInitializationCost"/>
+            </div>
+            <div class="form-group">
+                <label>Machine Maintenance Cost</label>
+                <input type="number" class="form-control" name="maintCost" [(ngModel)]="config.machineMaintenanceCost"/>
+            </div>
+            <div class="form-group">
+                <label>Cost to fill an Order</label>
+                <input type="number" class="form-control" name="fillCost" [(ngModel)]="config.machineOrderFillCost"/>
+            </div>
+            <div class="form-group">
+                <label>Order Value</label>
+                <input type="number" class="form-control" name="orderValue" [(ngModel)]="config.orderBaseValue"/>
+            </div>
+            <button type="submit" class="btn btn-block btn-lg btn-outline-primary">Start Game</button>
+        </form>
+    </section>
+</div>
+
+<footer-main></footer-main>
+
